@@ -6,7 +6,7 @@ import tiktok from '../assets/tiktok.svg'
 import Icon from './Icon'
 
 const socials = [
-  { name: 'WhatsApp', handle: '925 397 890', href: 'https://wa.me/51925397890', src: whatsapp },
+  { name: 'WhatsApp', handle: '929 733 839', href: 'https://wa.me/51929733839', src: whatsapp },
   { name: 'Instagram', handle: '@tulugar_inteligente', href: 'https://www.instagram.com/tulugar_inteligente', src: instagram },
   { name: 'Facebook', handle: 'Tu Lugar Inteligente', href: 'https://www.facebook.com/search/top?q=Tu%20Lugar%20Inteligente', src: facebook },
   { name: 'TikTok', handle: '@tu.lugar.inteligente', href: 'https://www.tiktok.com/@tu.lugar.inteligente', src: tiktok },
@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="space-y-3">
           <h4 className="font-bold text-white">Contacto</h4>
           <p className="flex gap-2"><Icon name="pin" className="mt-0.5 h-4 w-4 shrink-0 text-[#00F0FF]" />Mercado Qatuna Local N° 234, Av. Isabel Chimpu Ocllo Cdra. 10 S/N - Carabayllo</p>
-          <a href="https://wa.me/51925397890" className="flex gap-2 transition hover:text-[#00F0FF]"><Icon name="phone" className="h-4 w-4 text-[#00F0FF]" />Informes: 925 397 890</a>
+          <a href="https://wa.me/51929733839" className="flex gap-2 transition hover:text-[#00F0FF]"><Icon name="phone" className="h-4 w-4 text-[#00F0FF]" />Informes: 929 733 839</a>
           <a href="https://wa.me/51929733839" className="flex gap-2 transition hover:text-[#00F0FF]"><Icon name="phone" className="h-4 w-4 text-[#00F0FF]" />Cotizaciones: 929 733 839</a>
           <a href="mailto:ventas.tulugarinteligente@gmail.com" className="flex gap-2 break-all transition hover:text-[#00F0FF]"><Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-[#00F0FF]" />ventas.tulugarinteligente@gmail.com</a>
         </div>

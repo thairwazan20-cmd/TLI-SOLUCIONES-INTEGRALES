@@ -1,9 +1,9 @@
 export const INFO = {
   address: 'QATUNA MERCADOS LOCAL 234',
   address2: 'Av. Isabel Chimpu Ocllo, Cdra. 10 S/N - Carabayllo',
-  phone: '925 397 890',
+  phone: '929 733 839',
   email: 'ventas.tulugarinteligente@gmail.com',
-  wa: 'https://wa.me/51925397890',
+  wa: 'https://wa.me/51929733839',
 }
 
 export const SOCIALS = [
