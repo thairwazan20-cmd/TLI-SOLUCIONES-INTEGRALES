@@ -1,25 +1,25 @@
-import Button from './Button'
+import { INFO } from '../data'
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20 text-center">
-      <div className="grid-bg absolute inset-0" />
-      <div className="absolute left-1/2 top-1/3 h-96 w-96 -translate-x-1/2 rounded-full bg-neon/20 blur-[120px]" />
-      <div className="relative max-w-4xl">
-        <p className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-neon">// Smart Spaces · Next-Gen Tech</p>
-        <h1 className="text-4xl font-extrabold leading-tight md:text-6xl lg:text-7xl">
-          Transformamos tus espacios en{' '}
-          <span className="bg-gradient-to-r from-neon to-white bg-clip-text text-transparent glow-text">
-            Soluciones Inteligentes
-          </span>
+    <section id="inicio" className="bg-gradient-to-br from-[#030b1d] via-navy to-[#0a2d63] text-white">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <p className="mb-4 text-xs uppercase tracking-widest text-white/80">Soporte técnico y reparación de computadoras</p>
+        <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
+          Tu equipo en buenas
+          <br />
+          <span className="text-brand">manos, siempre.</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-white/60">
-          Automatización, infraestructura y seguridad a la medida de tu hogar o negocio.
+        <p className="mt-6 max-w-lg text-white/80">
+          Reparamos, mantenemos y optimizamos tus equipos de cómputo con un servicio rápido, confiable y profesional.
+          Atendemos a personas y empresas.
         </p>
-        <div className="mt-10 flex justify-center gap-4">
-          <Button>Solicitar Cotización</Button>
-          <a href="#services" className="glass rounded-lg px-6 py-3 text-sm transition hover:border-neon hover:text-neon">
-            Ver servicios
+        <div className="mt-8 flex flex-wrap gap-4">
+          <a href={INFO.wa} target="_blank" rel="noopener noreferrer" className="rounded-full bg-brand px-7 py-3 text-sm font-semibold hover:brightness-110">
+            🔧 Solicitar servicio por WhatsApp
+          </a>
+          <a href="#servicios" className="rounded-full border border-white/60 px-7 py-3 text-sm font-semibold hover:bg-white/10">
+            Conoce nuestros servicios ›
           </a>
         </div>
       </div>

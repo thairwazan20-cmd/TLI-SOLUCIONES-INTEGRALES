@@ -1,21 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b0b0f;
-  --color-neon: #00f0ff;
-  --color-neon2: #00e5ff;
+  --color-navy: #071a3d;
+  --color-brand: #0b8cff;
+  --color-wa: #25d366;
 }
 
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #0b0b0f; color: #fff; font-family: ui-sans-serif, system-ui, sans-serif; }
-
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
-}
-.glow-text { text-shadow: 0 0 8px #00f0ff, 0 0 24px rgba(0, 240, 255, 0.6); }
-.glow-box { box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.25); }
-.glass { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(0, 240, 255, 0.15); backdrop-filter: blur(12px); }
+body { margin: 0; color: #0f172a; background: #fff; font-family: ui-sans-serif, system-ui, sans-serif; }
