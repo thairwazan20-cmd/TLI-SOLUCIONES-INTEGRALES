@@ -1,37 +1,52 @@
 import logo from '../assets/TLI.svg'
-import { INFO, SOCIALS } from '../data'
+import whatsapp from '../assets/whatsapp.svg'
+import instagram from '../assets/instagram.svg'
+import facebook from '../assets/facebook.svg'
+import tiktok from '../assets/tiktok.svg'
+import Icon from './Icon'
+
+const socials = [
+  { name: 'WhatsApp', handle: '925 397 890', href: 'https://wa.me/51925397890', src: whatsapp },
+  { name: 'Instagram', handle: '@tulugar_inteligente', href: 'https://www.instagram.com/tulugar_inteligente', src: instagram },
+  { name: 'Facebook', handle: 'Tu Lugar Inteligente', href: 'https://www.facebook.com/search/top?q=Tu%20Lugar%20Inteligente', src: facebook },
+  { name: 'TikTok', handle: '@tu.lugar.inteligente', href: 'https://www.tiktok.com/@tu.lugar.inteligente', src: tiktok },
+]
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-sm text-white/80">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 md:grid-cols-4">
-        <img src={logo} alt="Tu Lugar Inteligente" className="h-20 w-auto self-start" />
+    <footer className="bg-[#0B0B0F] text-sm text-white/75">
+      <div className="h-px bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent" />
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-2 lg:grid-cols-3">
         <div>
-          <h4 className="mb-3 font-bold text-white">Información de contacto</h4>
-          <p>📍 {INFO.address}</p>
-          <p className="pl-6 text-xs">{INFO.address2}</p>
-          <a href={INFO.wa} className="mt-2 block">📞 {INFO.phone}</a>
-          <a href={INFO.wa2} className="block">📞 {INFO.phone2}</a>
-          <a href={`mailto:${INFO.email}`} className="block break-all">✉ {INFO.email}</a>
+          <img src={logo} alt="Tu Lugar Inteligente" className="h-14 w-auto" />
+          <p className="mt-4 max-w-xs">Brindamos Soluciones Informáticas</p>
         </div>
-        <div>
-          <h4 className="mb-3 font-bold text-white">Horario de atención</h4>
-          <p>Lunes a Sábado</p>
-          <p>9:00 a.m. – 8:00 p.m.</p>
-          <p className="mt-2">Domingos y feriados (previa consulta)</p>
+
+        <div className="space-y-3">
+          <h4 className="font-bold text-white">Contacto</h4>
+          <p className="flex gap-2"><Icon name="pin" className="mt-0.5 h-4 w-4 shrink-0 text-[#00F0FF]" />Mercado Qatuna Local N° 234, Av. Isabel Chimpu Ocllo Cdra. 10 S/N - Carabayllo</p>
+          <a href="https://wa.me/51925397890" className="flex gap-2 transition hover:text-[#00F0FF]"><Icon name="phone" className="h-4 w-4 text-[#00F0FF]" />Informes: 925 397 890</a>
+          <a href="https://wa.me/51929733839" className="flex gap-2 transition hover:text-[#00F0FF]"><Icon name="phone" className="h-4 w-4 text-[#00F0FF]" />Cotizaciones: 929 733 839</a>
+          <a href="mailto:ventas.tulugarinteligente@gmail.com" className="flex gap-2 break-all transition hover:text-[#00F0FF]"><Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-[#00F0FF]" />ventas.tulugarinteligente@gmail.com</a>
         </div>
+
         <div>
-          <h4 className="mb-3 font-bold text-white">Síguenos</h4>
-          <ul className="space-y-1">
-            {SOCIALS.map((s) => (
+          <h4 className="mb-4 font-bold text-white">Síguenos</h4>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {socials.map((s) => (
               <li key={s.name}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-brand">{s.name}</a>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#00F0FF]/40 bg-white/5 shadow-[0_0_10px_rgba(0,240,255,0.2)] transition duration-300 group-hover:scale-110 group-hover:bg-[#00F0FF] group-hover:shadow-[0_0_25px_#00F0FF]">
+                    <img src={s.src} alt={s.name} className="h-5 w-5 brightness-0 invert transition group-hover:invert-0" />
+                  </span>
+                  <span className="text-xs transition group-hover:text-[#00F0FF]">{s.handle}</span>
+                </a>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs">
+      <div className="border-t border-white/10 py-4 text-center text-xs text-white/50">
         © 2026 Tu Lugar Inteligente. Todos los derechos reservados.
       </div>
     </footer>
