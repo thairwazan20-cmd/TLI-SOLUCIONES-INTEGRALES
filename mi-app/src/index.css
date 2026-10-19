@@ -6,5 +6,15 @@
   --color-wa: #25d366;
 }
 
-html { scroll-behavior: smooth; }
-body { margin: 0; color: #0f172a; background: #fff; font-family: ui-sans-serif, system-ui, sans-serif; }
+html { scroll-behavior: smooth; scroll-padding-top: 7rem; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  color: #0f172a;
+  background: #fff;
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
