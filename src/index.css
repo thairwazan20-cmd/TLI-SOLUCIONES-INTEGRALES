@@ -4,6 +4,8 @@
   --color-navy: #071a3d;
   --color-brand: #0b8cff;
   --color-wa: #25d366;
+  --color-neon: #00f0ff;
+  --color-ink: #0b0b0f;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 7rem; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -17,4 +19,85 @@ body {
   color: #0f172a;
   background: #fff;
   font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Fondos ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  animation: grid-move 20s linear infinite;
+}
+@keyframes grid-move { to { background-position: 48px 48px; } }
+
+.bg-dots {
+  background-image: radial-gradient(rgba(11, 140, 255, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.blob { animation: blob 14s ease-in-out infinite; }
+.blob-delay { animation-delay: -7s; }
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.15); }
+  66% { transform: translate(-40px, 30px) scale(0.9); }
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 0%, rgba(0, 240, 255, 0.08) 50%, transparent 100%);
+  height: 30%;
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes scan { from { transform: translateY(-100%); } to { transform: translateY(400%); } }
+
+.text-gradient {
+  background: linear-gradient(90deg, #00f0ff, #0b8cff, #00f0ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+.caret { animation: caret 1s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+
+/* ---------- Aparición al hacer scroll ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Tarjeta con luz que sigue al cursor ---------- */
+.spotlight { position: relative; isolation: isolate; transform-style: preserve-3d; transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 240, 255, 0.18), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* ---------- Carrusel de marcas ---------- */
+.marquee { mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track { animation: marquee 30s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
 }
