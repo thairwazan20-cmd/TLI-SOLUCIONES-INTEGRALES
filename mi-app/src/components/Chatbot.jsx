@@ -93,7 +93,7 @@ function locationAnswer() {
 
 const GREETING = {
   from: 'bot',
-  text: `¡Hola! 👋 Soy el asistente de Tu Lugar Inteligente. Tenemos más de ${INFO.years} años de experiencia. ¿En qué te puedo ayudar?`,
+  text: `¡Hola! 👋 Soy Fernando, el asistente de Tu Lugar Inteligente. Tenemos más de ${INFO.years} años de experiencia. ¿En qué te puedo ayudar?`,
   chips: MAIN_CHIPS,
 }
 
@@ -205,7 +205,7 @@ export default function Chatbot() {
             <img src={logo} alt="" className="w-full" />
           </span>
           <div className="relative min-w-0 flex-1">
-            <b className="block text-sm">Asistente TLI</b>
+            <b className="block text-sm">Fernando</b>
             <span className="flex items-center gap-1.5 text-xs text-white/60">
               <span className="h-2 w-2 rounded-full bg-emerald-400" /> En línea
             </span>
