@@ -1,0 +1,12 @@
+{
+  "name": "tli-soluciones-integrales",
+  "private": true,
+  "description": "El sitio vive en mi-app/ (carpeta que publica Vercel). Estos scripts solo la llaman desde la raíz.",
+  "scripts": {
+    "postinstall": "npm --prefix mi-app install",
+    "dev": "npm --prefix mi-app run dev",
+    "build": "npm --prefix mi-app run build",
+    "preview": "npm --prefix mi-app run preview",
+    "lint": "npm --prefix mi-app run lint"
+  }
+}
