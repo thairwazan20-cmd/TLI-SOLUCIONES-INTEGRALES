@@ -18,18 +18,20 @@ const brands = [
 
 export default function Brands() {
   return (
-    <section id="marcas" className="bg-[#0B0B0F] py-16 text-center text-white">
+    <section id="marcas" className="overflow-hidden bg-[#0B0B0F] py-16 text-center text-white">
       <p className="text-xs font-bold uppercase tracking-widest text-[#00F0FF]">Trabajamos con las mejores marcas</p>
-      <h2 className="mt-2 text-2xl font-extrabold">Somos especialistas en las principales marcas</h2>
-      <div className="mx-auto mt-10 grid max-w-6xl grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 px-6 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center md:gap-x-12">
-        {brands.map(([name, src]) => (
-          <img
-            key={name}
-            src={src}
-            alt={name}
-            className="h-12 max-w-[9rem] w-auto object-contain opacity-80 brightness-0 invert transition-all duration-300 hover:scale-110 hover:opacity-100 hover:drop-shadow-[0_0_10px_#00F0FF] md:h-14"
-          />
-        ))}
+      <h2 className="mt-2 px-6 text-2xl font-extrabold">Somos especialistas en las principales marcas</h2>
+      <div className="marquee mt-10">
+        <div className="marquee-track flex w-max items-center gap-16">
+          {[...brands, ...brands].map(([name, src], i) => (
+            <img
+              key={`${name}-${i}`}
+              src={src}
+              alt={i < brands.length ? name : ''}
+              className="h-12 w-auto max-w-[9rem] object-contain opacity-70 brightness-0 invert transition-all duration-300 hover:scale-110 hover:opacity-100 hover:drop-shadow-[0_0_10px_#00F0FF] md:h-14"
+            />
+          ))}
+        </div>
       </div>
     </section>
   )

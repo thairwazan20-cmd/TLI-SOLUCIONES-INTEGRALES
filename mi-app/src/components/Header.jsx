@@ -1,29 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/TLI.svg'
 import whatsapp from '../assets/whatsapp.svg'
 import Icon from './Icon'
-import { INFO } from '../data'
+import { INFO, waLink } from '../data'
 
 const links = [
-  ['Inicio', '#inicio'],
-  ['Servicios', '#servicios'],
-  ['Nosotros', '#nosotros'],
-  ['Clientes', '#marcas'],
-  ['Contacto', '#contacto'],
+  ['Inicio', '/'],
+  ['Servicios', '/servicios'],
+  ['Nosotros', '/nosotros'],
+  ['Contacto', '/contacto'],
 ]
 
 export default function Header() {
-  const [active, setActive] = useState('#inicio')
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  const go = (href) => {
-    setActive(href)
-    setOpen(false)
-  }
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    addEventListener('scroll', onScroll, { passive: true })
+    return () => removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-cyan-500/20 bg-[#0B0B0F]/90 backdrop-blur-md">
-      <div className="border-b border-white/5 text-xs text-gray-300">
+    <header className={`sticky top-0 z-50 border-b border-cyan-500/20 backdrop-blur-md transition-colors duration-300 ${scrolled ? 'bg-[#0B0B0F]/90 shadow-[0_8px_30px_rgba(0,0,0,0.4)]' : 'bg-[#0B0B0F]'}`}>
+      <div className={`overflow-hidden border-b border-white/5 text-xs text-gray-300 transition-all duration-300 ${scrolled ? 'max-h-0 border-transparent' : 'max-h-20'}`}>
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-6 py-2">
           <span className="hidden items-center gap-2 sm:flex">
             <Icon name="pin" className="h-4 w-4 text-[#00F0FF]" />
@@ -37,29 +39,32 @@ export default function Header() {
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <a href="#inicio" onClick={() => go('#inicio')} className="shrink-0">
-          <img src={logo} alt="Tu Lugar Inteligente" className="h-12 w-auto md:h-14" />
-        </a>
+        <Link to="/" className="shrink-0">
+          <img src={logo} alt="Tu Lugar Inteligente" className={`w-auto transition-all duration-300 ${scrolled ? 'h-10 md:h-11' : 'h-12 md:h-14'}`} />
+        </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          {links.map(([label, href]) => (
-            <a
+          {links.map(([label, to]) => (
+            <NavLink
               key={label}
-              href={href}
-              onClick={() => go(href)}
-              className={`border-b-2 py-1 transition-colors duration-200 hover:text-[#00F0FF] ${
-                active === href
-                  ? 'border-[#00F0FF] text-[#00F0FF] shadow-[0_6px_10px_-6px_#00F0FF]'
-                  : 'border-transparent text-gray-200'
-              }`}
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) =>
+                `group relative py-1 transition-colors duration-200 hover:text-[#00F0FF] ${isActive ? 'text-[#00F0FF]' : 'text-gray-200'}`
+              }
             >
-              {label}
-            </a>
+              {({ isActive }) => (
+                <>
+                  {label}
+                  <span className={`absolute -bottom-0.5 left-0 h-0.5 bg-[#00F0FF] shadow-[0_0_8px_#00F0FF] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                </>
+              )}
+            </NavLink>
           ))}
         </nav>
 
         <a
-          href={INFO.wa}
+          href={waLink()}
           target="_blank"
           rel="noopener noreferrer"
           className="ml-auto flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 px-4 py-2 text-white shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 hover:shadow-emerald-400/50 active:scale-95 sm:px-5 md:ml-0"
@@ -86,15 +91,16 @@ export default function Header() {
 
       {open && (
         <nav className="border-t border-cyan-500/20 bg-[#0B0B0F] px-4 pb-4 md:hidden">
-          {links.map(([label, href]) => (
-            <a
+          {links.map(([label, to]) => (
+            <NavLink
               key={label}
-              href={href}
-              onClick={() => go(href)}
-              className={`block border-b border-white/5 py-3.5 text-base ${active === href ? 'text-[#00F0FF]' : 'text-gray-200'}`}
+              to={to}
+              end={to === '/'}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) => `block border-b border-white/5 py-3.5 text-base ${isActive ? 'text-[#00F0FF]' : 'text-gray-200'}`}
             >
               {label}
-            </a>
+            </NavLink>
           ))}
         </nav>
       )}
