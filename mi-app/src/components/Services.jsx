@@ -6,7 +6,7 @@ import { CATEGORIES, SERVICES } from '../data'
 
 export function ServiceCard({ s }) {
   return (
-    <Spotlight as={Link} to={`/servicios/${s.slug}`} className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white hover:border-[#00F0FF]/60 hover:shadow-[0_20px_40px_-15px_rgba(11,140,255,0.35)]">
+    <Spotlight as={Link} to={`/servicios/${s.slug}`} data-cursor="Ver" className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white hover:border-[#00F0FF]/60 hover:shadow-[0_20px_40px_-15px_rgba(11,140,255,0.35)]">
       <div className="relative h-40 overflow-hidden bg-gradient-to-br from-[#0B0B0F] via-navy to-[#10335f]">
         {s.img ? (
           <img src={s.img} alt={s.title} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />

@@ -13,7 +13,7 @@ export default function PageHero({ eyebrow, title, highlight, text, img, crumbs 
       <div className="blob blob-delay absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-brand/20 blur-[100px]" />
       <Particles density={0.00005} />
       <div className="relative mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <nav className="mb-5 flex flex-wrap items-center gap-1 text-xs text-white/50">
+        <nav style={{ '--d': '0.1s' }} className="intro mb-5 flex flex-wrap items-center gap-1 text-xs text-white/50">
           <Link to="/" className="hover:text-[#00F0FF]">Inicio</Link>
           {crumbs.map(([label, to]) => (
             <span key={label} className="flex items-center gap-1">
@@ -22,11 +22,11 @@ export default function PageHero({ eyebrow, title, highlight, text, img, crumbs 
             </span>
           ))}
         </nav>
-        {eyebrow && <p className="text-xs font-bold uppercase tracking-widest text-[#00F0FF]">{eyebrow}</p>}
-        <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
+        {eyebrow && <p style={{ '--d': '0.2s' }} className="intro text-xs font-bold uppercase tracking-widest text-[#00F0FF]">{eyebrow}</p>}
+        <h1 style={{ '--d': '0.3s' }} className="intro mt-3 max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
           {title} {highlight && <span className="text-gradient">{highlight}</span>}
         </h1>
-        {text && <p className="mt-5 max-w-2xl text-white/70 md:text-lg">{text}</p>}
+        {text && <p style={{ '--d': '0.45s' }} className="intro mt-5 max-w-2xl text-white/70 md:text-lg">{text}</p>}
       </div>
       <div className="h-px bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent" />
     </section>

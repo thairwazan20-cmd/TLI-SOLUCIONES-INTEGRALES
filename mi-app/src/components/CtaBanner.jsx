@@ -24,6 +24,7 @@ export default function CtaBanner({ message = 'Hola, quisiera solicitar un diagn
               href={waLink(message)}
               target="_blank"
               rel="noopener noreferrer"
+              data-magnetic
               className="group relative mt-6 inline-flex items-center gap-2 overflow-hidden rounded-full bg-wa px-7 py-3 text-sm font-semibold transition hover:scale-105 hover:shadow-[0_0_25px_rgba(37,211,102,0.6)]"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition duration-700 group-hover:translate-x-full" />

@@ -67,6 +67,7 @@ export default function Header() {
           href={waLink()}
           target="_blank"
           rel="noopener noreferrer"
+          data-magnetic
           className="ml-auto flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 px-4 py-2 text-white shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 hover:shadow-emerald-400/50 active:scale-95 sm:px-5 md:ml-0"
         >
           <img src={whatsapp} alt="" className="h-6 w-6 brightness-0 invert" />
